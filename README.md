@@ -72,21 +72,21 @@ For one station visit, let:
 
 Recorded lateness is:
 
-$$
+```math
 L_a = a_o-a_s,\qquad L_d=d_o-d_s.
-$$
+```
 
 Scheduled and observed stop durations are:
 
-$$
+```math
 D_s=d_s-a_s,\qquad D_o=d_o-a_o.
-$$
+```
 
 Their relationship is:
 
-$$
+```math
 \Delta L=L_d-L_a=D_o-D_s.
-$$
+```
 
 Positive $\Delta L$ means recorded lateness increased during the visit; negative values mean it decreased. This is an accounting identity, not a causal attribution of delay to the station.
 
@@ -104,9 +104,9 @@ Here $L_a=2$, $L_d=-1$, and $\Delta L=-3$ minutes. The apparent early departure 
 
 The initial model will reproduce distributions of departure lateness for comparable service groups. A sampled visit satisfies:
 
-$$
+```math
 L_d^{(b)}=L_a^{(b)}+D_o^{(b)}-D_s.
-$$
+```
 
 Arrival conditions and dwell observations will be sampled jointly, or through a justified conditional model, to preserve their dependence. Service pattern, scheduled stop duration and time band are candidate grouping variables, subject to sample size.
 
@@ -120,15 +120,15 @@ These extensions are proposed methods. They have not yet been implemented or val
 
 For a service-group context $x$ (for example, calling pattern and time band), the station model targets the conditional distribution
 
-$
+```math
 F_d(\ell \mid x)=P(L_a+D_o-D_s \leq \ell \mid x).
-$
+```
 
 This supports an explicitly chosen departure-lateness risk:
 
-$
+```math
 P(L_d>\tau \mid x)=1-F_d(\tau \mid x).
-$
+```
 
 The estimation challenge is to preserve the joint behaviour of arrival lateness and dwell duration, quantify uncertainty and check the distribution on later dates. The threshold $\tau$ will be declared for the study rather than presented as a universal railway standard.
 
@@ -136,17 +136,17 @@ A wider service-connectivity study could represent the observed network as a dir
 
 For an edge $e$, the observed running-time variable is
 
-$
+```math
 T_e=t_{\mathrm{arrival,next}}-t_{\mathrm{departure,current}},
 \qquad T_e\sim F_e(\cdot\mid x).
-$
+```
 
 For a specified journey path $p$, simulated elapsed time combines section running times and intermediate dwell durations:
 
-$
+```math
 T_p^{(b)}=\sum_{e\in p}T_e^{(b)}
 +\sum_{v\in p_{\mathrm{intermediate}}}D_v^{(b)}.
-$
+```
 
 Joint journey/day sampling would preserve dependence between sections and shared operating conditions. A sufficiently broad service inventory could then support route-overlap analysis and examination of how observed lateness evolves along connected journeys. The current single-cohort pilot cannot establish network-wide importance or causal interaction between trains.
 
