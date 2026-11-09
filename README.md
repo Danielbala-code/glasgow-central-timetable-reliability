@@ -67,8 +67,8 @@ Original time strings are preserved. Dated timestamps, midnight crossings, sourc
 
 For one station visit, let:
 
-- \(a_s, d_s\): scheduled arrival and departure;
-- \(a_o, d_o\): reported actual arrival and departure.
+- $a_s, d_s$: scheduled arrival and departure;
+- $a_o, d_o$: reported actual arrival and departure.
 
 Recorded lateness is:
 
@@ -88,7 +88,7 @@ $$
 \Delta L=L_d-L_a=D_o-D_s.
 $$
 
-Positive \(\Delta L\) means recorded lateness increased during the visit; negative values mean it decreased. This is an accounting identity, not a causal attribution of delay to the station.
+Positive $\Delta L$ means recorded lateness increased during the visit; negative values mean it decreased. This is an accounting identity, not a causal attribution of delay to the station.
 
 ### One inspected example
 
@@ -98,7 +98,7 @@ Positive \(\Delta L\) means recorded lateness increased during the visit; negati
 | Departure | 07:18 | 07:17 |
 | Stop duration | 5 minutes | 2 minutes |
 
-Here \(L_a=2\), \(L_d=-1\), and \(\Delta L=-3\) minutes. The apparent early departure must be assessed against timing definitions and precision before imposing a departure-holding rule.
+Here $L_a=2$, $L_d=-1$, and $\Delta L=-3$ minutes. The apparent early departure must be assessed against timing definitions and precision before imposing a departure-holding rule.
 
 ## Planned empirical simulation
 
