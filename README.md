@@ -114,6 +114,44 @@ The baseline timetable will remain explicit and versioned. Any hypothetical chan
 
 This is an empirical station-performance model. It does not contain a train-physics engine, signalling headways, platform conflicts, crew or rolling-stock circulation constraints.
 
+## Planned probabilistic and graph-based extension
+
+These extensions are proposed methods. They have not yet been implemented or validated.
+
+For a service-group context $x$ (for example, calling pattern and time band), the station model targets the conditional distribution
+
+$
+F_d(\ell \mid x)=P(L_a+D_o-D_s \leq \ell \mid x).
+$
+
+This supports an explicitly chosen departure-lateness risk:
+
+$
+P(L_d>\tau \mid x)=1-F_d(\tau \mid x).
+$
+
+The estimation challenge is to preserve the joint behaviour of arrival lateness and dwell duration, quantify uncertainty and check the distribution on later dates. The threshold $\tau$ will be declared for the study rather than presented as a universal railway standard.
+
+A wider service-connectivity study could represent the observed network as a directed graph $G=(V,E)$: nodes are location visits mapped to unambiguous locations, and edges connect consecutive calling points. This is a graph of service connections; its edges do not establish physical track sections. Glasgow Central's operational locations must be resolved before treating it as a single network node.
+
+For an edge $e$, the observed running-time variable is
+
+$
+T_e=t_{\mathrm{arrival,next}}-t_{\mathrm{departure,current}},
+\qquad T_e\sim F_e(\cdot\mid x).
+$
+
+For a specified journey path $p$, simulated elapsed time combines section running times and intermediate dwell durations:
+
+$
+T_p^{(b)}=\sum_{e\in p}T_e^{(b)}
++\sum_{v\in p_{\mathrm{intermediate}}}D_v^{(b)}.
+$
+
+Joint journey/day sampling would preserve dependence between sections and shared operating conditions. A sufficiently broad service inventory could then support route-overlap analysis and examination of how observed lateness evolves along connected journeys. The current single-cohort pilot cannot establish network-wide importance or causal interaction between trains.
+
+**Path algorithms have a specific role:** time-dependent earliest-arrival methods become relevant when the question involves choosing between feasible services or routes, including waiting and transfer rules. A fixed journey does not require a shortest-path algorithm. Physical-distance analysis would require additional coordinates or track-length data, which the inspected HSP records do not supply.
+
 ## Validation and uncertainty
 
 - Audit coverage, repeated visits, scheduled/actual timing consistency and missing observations before fitting.
